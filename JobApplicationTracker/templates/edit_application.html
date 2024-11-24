@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 style="text-align: center; color: #4CAF50; margin-bottom: 20px;">Edit Application</h2>
+<form method="POST" style="max-width: 600px; margin: 0 auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <div class="form-group" style="margin-bottom: 15px;">
+        <label for="company" style="display: block; font-weight: bold; margin-bottom: 5px;">Company:</label>
+        <input type="text" name="company" value="{{ application.company }}" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+    </div>
+
+    <div class="form-group" style="margin-bottom: 15px;">
+        <label for="position" style="display: block; font-weight: bold; margin-bottom: 5px;">Position:</label>
+        <input type="text" name="position" value="{{ application.position }}" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+    </div>
+
+    <div class="form-group" style="margin-bottom: 15px;">
+        <label for="date_applied" style="display: block; font-weight: bold; margin-bottom: 5px;">Date Applied:</label>
+        <input type="date" name="date_applied" value="{{ application.date_applied.strftime('%Y-%m-%d') }}" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+    </div>
+
+    <div class="form-group" style="margin-bottom: 15px;">
+        <label for="status" style="display: block; font-weight: bold; margin-bottom: 5px;">Status:</label>
+        <select name="status" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+            <option value="Applied" {% if application.status == 'Applied' %}selected{% endif %}>Applied</option>
+            <option value="Phone Screen" {% if application.status == 'Phone Screen' %}selected{% endif %}>Phone Screen</option>
+            <option value="Interview" {% if application.status == 'Interview' %}selected{% endif %}>Interview</option>
+            <option value="Offer" {% if application.status == 'Offer' %}selected{% endif %}>Offer</option>
+            <option value="Rejected" {% if application.status == 'Rejected' %}selected{% endif %}>Rejected</option>
+        </select>
+    </div>
+
+    <div class="form-group" style="margin-bottom: 15px;">
+        <label for="notes" style="display: block; font-weight: bold; margin-bottom: 5px;">Notes:</label>
+        <textarea name="notes" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; height: 100px;">{{ application.notes }}</textarea>
+    </div>
+
+    <button type="submit" style="display: block; width: 100%; background-color: #4CAF50; color: white; padding: 10px; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer;">Update Application</button>
+</form>
+{% endblock %}

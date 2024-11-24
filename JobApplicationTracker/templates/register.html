@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 style="text-align: center; color: #4CAF50; margin-bottom: 20px;">Register</h2>
+<form method="POST" style="max-width: 400px; margin: 20px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+    <div class="form-group" style="margin-bottom: 20px;">
+        <label for="username" style="display: block; font-weight: bold; margin-bottom: 8px; color: #333;">Username:</label>
+        <input type="text" name="username" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; color: #555;">
+    </div>
+
+    <div class="form-group" style="margin-bottom: 20px;">
+        <label for="password" style="display: block; font-weight: bold; margin-bottom: 8px; color: #333;">Password:</label>
+        <input type="password" name="password" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; color: #555;">
+    </div>
+
+    <div class="form-group" style="margin-bottom: 20px;">
+        <label for="confirm_password" style="display: block; font-weight: bold; margin-bottom: 8px; color: #333;">Confirm Password:</label>
+        <input type="password" name="confirm_password" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 14px; color: #555;">
+    </div>
+
+    <button type="submit" style="display: block; width: 100%; background-color: #4CAF50; color: white; padding: 12px; border: none; border-radius: 5px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s;">
+        Register
+    </button>
+</form>
+<p style="text-align: center; margin-top: 15px; font-size: 14px; color: #555;">
+    Already have an account? 
+    <a href="{{ url_for('login') }}" style="color: #4CAF50; text-decoration: none; font-weight: bold;">Login here</a>.
+</p>
+{% endblock %}
